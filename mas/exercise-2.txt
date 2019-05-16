@@ -1,0 +1,19 @@
+2-1. S = {aaa, aab, aba, abb, baa, bab, bba, bbb}
+2-2. S = {oooo, oooe, ooeo, ooee, oeoo, oeoe, oeeo, oeee, eooo, eooe, eoeo, eoee, eeoo, eeoe, eeeo, eeee}
+2-3. S = {functional, minor, cosmetic, nonconformity}
+2-4. S = {0, 1,..., 349, 350}
+2-6. S = {000, 001,..., 998, 999}
+2-8. S = {11, 12, 13,.., 54, 55}
+2-10.
+Let X denote the max time until a service transaction is requested of a computer
+S = {1, 2,..., X-1, X}
+
+2-12. Let N denote the result of an optical inspection of a sample
+S = N(s, m, l)
+
+2-14. 2x2x4
+2-16. (4, 8, 12)x(200, 300, 400)
+2-18. S = {s, fs, ffs, fffS, fffFS, fffFFS, fffFFFA}
+2-26. A giao B = 70
+A' = 9 + 5 = 14
+A hop B = 70 + 9 + 16 = 95
