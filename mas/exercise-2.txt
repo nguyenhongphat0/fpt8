@@ -17,3 +17,37 @@ S = N(s, m, l)
 2-26. A giao B = 70
 A' = 9 + 5 = 14
 A hop B = 70 + 9 + 16 = 95
+============================
+2-50.
+a) P(A) = 2/5
+b) P(B) = 3/5
+c) P(A') = 3/5
+d) P(A hop B) = 1
+e) P(A giao B) = 0
+2-52.
+a) 0.7
+b) 0.8
+2-56. S = {95, 96, 97, 98, 99, 100, 101, 102, 103,104}
+n = 10
+a) 0.1
+b) 0.5
+c) 0.5
+2-60. a) 5x5x4 = 100
+b) Number of path go through the first of four servers at the 3rd step = 5x5x1 = 25
+Probability = 25/100 = 0.25
+2-62. n = 70 + 9 + 16 + 5 = 100
+a) P(A) = (70 + 16)/100 = 0.86
+b) P(B) = 0.79
+c) P(A') = 0.14
+d) P(A giao B) = 0.7
+e) P(A hop B) = 0.95
+f) P(A' hop B) = 0.84
+2-66.
+a) 0.7
+b) 0.4
+c)
+P(B) = P(A giao B) + P(A' giao B)
+=> P(A' giao B) = P(B) - P(A giao B) = 0.1
+d) P(A giao B') = P(A) - P(A giao B) = 0.2
+e) P[(A hop B)'] = 0.6
+f) P(A' hop B) = P(A') + P(B) - P(A' giao B) = 0.7 + 0.2 - 0.1 = 0.8
