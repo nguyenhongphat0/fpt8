@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<!--
+    TODO define vocabulary identification data
+    PUBLIC ID  : -//vendor//vocabulary//EN
+    SYSTEM ID  : http://server/path/__NAME__
+-->
+
+<!-- TODO define your own vocabulary/syntax. Example follows:  -->
+<!ELEMENT feed (entry)+>
+<!ELEMENT entry (title, price, author , summary)+>
+<!ELEMENT title ANY>
+<!ELEMENT price ANY>
+<!ELEMENT author ANY>
+<!ELEMENT published ANY>
+<!ELEMENT updated (#PCDATA)>
+<!ELEMENT summary ANY>
+<!ATTLIST entry id CDATA #REQUIRED saleoff (helloyou|iloveyou) #IMPLIED>
+<!ATTLIST title type CDATA #IMPLIED>
+<!ATTLIST summary type CDATA #REQUIRED>
