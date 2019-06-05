@@ -11,17 +11,18 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.xpath.XPath;
+import javax.xml.xpath.XPathConstants;
+import org.w3c.dom.Document;
+import org.w3c.dom.Node;
+import phatnh.daos.XMLUtils;
+import phatnh.dtos.StudentDTO;
 
 /**
  *
  * @author nguyenhongphat0
  */
-public class MainController extends HttpServlet {
-    private static String ERROR = "error.jsp";
-    private static String LOGIN = "LoginController";
-    private static String SEARCH = "SearchController";
-    private static String DELETE = "DeleteController";
-    private static String INSERT = "InsertController";
+public class DeleteController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,24 +36,29 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        String url = ERROR;
+        String url = "error.jsp";
         try {
-            String action = request.getParameter("action");
-            if (action.equals("Login")) {
-                url = LOGIN;
-            } else if (action.equals("Search")) {
-                url = SEARCH;
-            } else if (action.equals("Delete")) {
-                url = DELETE;
-            } else if (action.equals("Register")) {
-                url = INSERT;
-            } else {
-                request.setAttribute("ERROR", "Action is not supported");
+            String id = request.getParameter("id");
+            String search = request.getParameter("search");
+            String filePath = getServletContext().getRealPath("/") + "/WEB-INF/studentAccount.xml";
+            Document doc = XMLUtils.parseFileToDOM(filePath);;
+            if (doc != null) {
+                XPath xpath = XMLUtils.createXPath();
+                String exp = "//student[@id='" + id + "']";
+                Node node = (Node) xpath.evaluate(exp, doc, XPathConstants.NODE);
+                if (node != null) {
+                    Node parent = node.getParentNode();
+                    parent.removeChild(node);
+                    boolean result = XMLUtils.transformDOMSrcToStreamResult(doc, filePath);
+                    if (result) {
+                        url = "MainController?action=Search&searchTxt=" + search;
+                    }
+                }
             }
         } catch (Exception e) {
-            log("ERROR at MainController: " + e.getMessage());
+            log("ERROR at DeleteController: " + e.getMessage());
         } finally {
-            request.getRequestDispatcher(url).forward(request, response);
+            response.sendRedirect(url);
         }
     }
 
