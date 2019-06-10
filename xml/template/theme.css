@@ -1,10 +1,31 @@
+input {
+	width: 250px;
+	height: 27px;
+	background-color: #edf1f2;
+	border: 1px solid #edf1f2;
+    padding: 4px 12px;
+    border-radius: 4px;
+	color: gray;
+	font-size: 13px;
+	font-weight: 400;
+	line-height: 20px;
+}
+input:focus {
+	outline: none;
+}
+button {
+	cursor: pointer;
+	background: none;
+	border: none;
+}
+button:focus {
+	outline: none;
+}
+button:active {
+	background-color: #edf1f2;
+}
 .gradient {
 	background: linear-gradient(to top right, #ff5263 0%, #ff7381 35%, #fcbd01 100%);
-}
-.stripped, input[type="submit"]:hover, .stripped-hover:hover {
-	/*background: repeating-linear-gradient( 45deg, #ff5263, #ff5263 10px, #fcbd01 10px, #fcbd01 20px );*/
-	background: #796eff;
-	color: white;
 }
 .center {
 	text-align: center;
@@ -33,25 +54,62 @@ html, body {
 .header .menu {
 	line-height: 80px;
 }
-.header .menu-item {
+.wave {
+	position: relative;
+	font-size: 15px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 10px 20px;
+}
+.wave::before, .wave::after {
+	content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 2px solid #f88db1;
+	transition: all 0.5s;
+	z-index: -1;
+}
+.wave::before {
+	border-top: none;
+	border-bottom: none;
+	transform: scale(1, 0);
+	transform-origin: top;
+}
+.wave::after {
+	border-left: none;
+	border-right: none;
+	transform: scale(0, 1);
+	transform-origin: top right;
+}
+.wave:hover::before, .wave:hover::after {
+	transform: scale(1);
+}
+.parallax {
+	display: table;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 50px;
+	box-sizing: border-box;
+}
+.parallax-background {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	left: 0;
+	top: 0;
+	filter: contrast(0.4);
+	z-index: -1;
+}
+.parallax-content {
+	border: 4px solid white;
 	color: white;
-	padding: 0px 10px;
-}
-input {
-	background-color: #edf1f2;
-	border: 1px solid #edf1f2;
-    padding: 4px;
-    border-radius: 4px;
-	color: #9ca6af;
-	font-size: 13px;
-	font-weight: 400;
-	line-height: 20px;
-}
-input[type="text"] {
-	width: 250px;
-	height: 20px;	
-}
-input[type="submit"] {
-	height: 30px;
-	cursor: pointer;
+	display: table-cell;
+	vertical-align: middle;
+	margin: auto;
+	padding: 20px;
 }
