@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<feed xmlns="https://hongphat.sunrise.vn"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://hongphat.sunrise.vn schema.xsd">
+    <entry id="123" saleoff="-100">
+        <title type="html">Arena of Evolution has reportedly rolled out in more territories</title>
+        <price>1</price>
+        <author>
+            <published>2019<author>a</author>-05-08T06:29:3<hate>shit</hate>6+00:00</published>
+            <updated>2019-05-08T06:29:36+00:00</updated>
+        </author>
+        <summary type="html">Arena of Evolution, the Auto Chess rip-off that soft launched on Android recently, has reportedly rolled out in more territories. It doesn&#8217;t seem to be a full global release but players in America and Germany are reporting that it&#8217;s available in their countries now. Arena of Evolution is basically Auto Chess on mobile If you haven&#8217;t heard of this yet, it&#8217;s a new strategy game that draws an awful lot of inspiration from Auto Chess. That&#8217;s a Dota spin-off in which you set all of your strategical options before the battle and then watch it play out. It&#8217;s pretty novel. There are over 60 heroes to collect here, all of which you can upgrade to increase their power or simply customise their play style. If you&#8217;d like to check it out, it&#8217;s available in certain territories right now on Google Play. As ever, please let us know in the comments section below if you can or can&#8217;t get it so the audience has a good idea of where it&#8217;s available.</summary>
+    </entry>
+    <entry id="618">
+        <title type="html">First guide</title>
+        <price>0</price>
+        <author>
+            <published>2019-05-08T06:29:36+00:00</published>
+            <updated>2019-05-08T06:29:36+00:00</updated>
+        </author>
+        <summary type="html">Arena of Evolution, the Auto Chess rip-off that soft launched on Android recently, has reportedly rolled out in more territories. It doesn&#8217;t seem to be a full global release but players in America and Germany are reporting that it&#8217;s available in their countries now. Arena of Evolution is basically Auto Chess on mobile If you haven&#8217;t heard of this yet, it&#8217;s a new strategy game that draws an awful lot of inspiration from Auto Chess. That&#8217;s a Dota spin-off in which you set all of your strategical options before the battle and then watch it play out. It&#8217;s pretty novel. There are over 60 heroes to collect here, all of which you can upgrade to increase their power or simply customise their play style. If you&#8217;d like to check it out, it&#8217;s available in certain territories right now on Google Play. As ever, please let us know in the comments section below if you can or can&#8217;t get it so the audience has a good idea of where it&#8217;s available.</summary>
+    </entry>
+</feed>

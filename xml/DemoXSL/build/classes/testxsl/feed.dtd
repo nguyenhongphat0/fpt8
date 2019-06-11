@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<!--
+    TODO define vocabulary identification
+    PUBLIC ID: -//vendor//vocabulary//EN
+    SYSTEM ID: http://server/path/feed.dtd
+
+-->
+
+<!--
+    An example how to use this DTD from your XML document:
+
+    <?xml version="1.0"?>
+
+    <!DOCTYPE feed SYSTEM "feed.dtd">
+
+    <feed>
+    ...
+    </feed>
+-->
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT feed (entry|subtitle|title|id|updated|link|generator)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT generator (#PCDATA)>
+<!ATTLIST generator
+    version CDATA #IMPLIED
+    uri CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT link EMPTY>
+<!ATTLIST link
+    title CDATA #IMPLIED
+    type CDATA #IMPLIED
+    rel CDATA #IMPLIED
+    href CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT updated (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT id (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT title (#PCDATA)>
+<!ATTLIST title
+    type CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT subtitle (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT entry (summary|author|price|id|link|title)*>
+<!ATTLIST entry
+    saleoff CDATA #IMPLIED
+    id CDATA #IMPLIED
+  >
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT price (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT author (updated|published)*>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT published (#PCDATA)>
+
+<!--- Put your DTDDoc comment here. -->
+<!ELEMENT summary (#PCDATA)>
+<!ATTLIST summary
+    type CDATA #IMPLIED
+  >
