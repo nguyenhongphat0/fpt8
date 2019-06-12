@@ -47,19 +47,16 @@ public class StudentHandler extends DefaultHandler {
 
     @Override
     public void characters(char[] chars, int i, int i1) throws SAXException {
+        String str = new String(chars, i, i1);
         if (!found) {
             if (foundUsername) {
                 if (this.currentTagName.equals("lastname")) {
-                    String str = new String(chars, i, i1);
                     this.fullName = str.trim();
                 } else if (this.currentTagName.equals("middlename")) {
-                    String str = new String(chars, i, i1);
                     this.fullName += " " + str.trim();
                 } else if (this.currentTagName.equals("firstname")) {
-                    String str = new String(chars, i, i1);
                     this.fullName += " " + str.trim();
                 } else if (this.currentTagName.equals("password")) {
-                    String str = new String(chars, i, i1);                    
                     if (str.equals(password)) {
                         this.found = true;
                     } else {
@@ -73,13 +70,15 @@ public class StudentHandler extends DefaultHandler {
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
         if (found && qName.equals("firstname")) {
-            try {
-                response.getOutputStream().write(("Welcome " + fullName).getBytes());
-            } catch (IOException ex) {
-                Logger.getLogger(StudentHandler.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            System.out.println("Welcome " + fullName);
         }
     }
     
-    
+    public boolean getStatus() {
+        return this.found;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
 }
