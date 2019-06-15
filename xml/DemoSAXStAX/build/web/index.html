@@ -11,8 +11,14 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <h1>Login</h1>
+        <h1>SAX Login</h1>
         <form action="LoginController" method="POST">
+            <input type="text" name="username" value="" />
+            <input type="password" name="password" />
+            <input type="submit" value="Login" name="login" />
+        </form>
+        <h1>StAX Login</h1>
+        <form action="StAXLoginController" method="POST">
             <input type="text" name="username" value="" />
             <input type="password" name="password" />
             <input type="submit" value="Login" name="login" />
