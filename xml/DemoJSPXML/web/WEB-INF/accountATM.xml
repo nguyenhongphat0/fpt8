@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customers xmlns:account="https://nguyenhongphat0.github.io">
+    <account:allowed username="phatnh" balance="300">
+        <fullname>PhatNH</fullname>
+        <address>Hau Nghia, Duc Hoa, Long An</address>
+        <pin>123</pin>
+        <class>D</class>
+        <transactions>
+            <transaction>
+                <id>110619002</id>
+                <date>2019/06/10</date>
+                <amount>50</amount>
+                <type>1</type>
+            </transaction>
+            <transaction>
+                <id>110619003</id>
+                <date>2019/06/10</date>
+                <amount>20</amount>
+                <type>1</type>
+            </transaction>
+            <transaction>
+                <id>110619005</id>
+                <date>2019/06/11</date>
+                <amount>80</amount>
+                <type>0</type>
+            </transaction>
+        </transactions>
+    </account:allowed>
+    <account:expired username="phatnh" balance="300">
+        <fullname>NhatLM</fullname>
+        <address>TPHCM</address>
+        <pin>456</pin>
+        <class>C</class>
+        <transactions>
+            <transaction>
+                <id>110619002</id>
+                <date>2019/06/10</date>
+                <amount>50</amount>
+                <type>1</type>
+            </transaction>
+            <transaction>
+                <id>110619003</id>
+                <date>2019/06/10</date>
+                <amount>20</amount>
+                <type>1</type>
+            </transaction>
+            <transaction>
+                <id>110619005</id>
+                <date>2019/06/11</date>
+                <amount>80</amount>
+                <type>0</type>
+            </transaction>
+        </transactions>
+    </account:expired>
+</customers>
