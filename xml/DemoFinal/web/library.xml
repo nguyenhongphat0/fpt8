@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+    <book id="B001">
+        <booktitle>Java Desktop</booktitle>
+        <author>ThanhPC</author>
+        <price>50</price>
+    </book>
+    <book id="B002">
+        <booktitle>Java Web</booktitle>
+        <author>KhanhKT</author>
+        <price>70</price>
+    </book>
+    <book id="B003">
+        <booktitle>XML</booktitle>
+        <author>KhanhKT</author>
+        <price>150</price>
+    </book>
+</library>

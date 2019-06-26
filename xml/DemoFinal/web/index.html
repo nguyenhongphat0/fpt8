@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>JSP Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript">
+            var count = 0;
+            var cells = [];
+            var new_XMLDOM = null;
+            var xmlHttp;
+            function addRow(tableID, cells) {
+                var tableElement = document.getElementById(tableID);
+                var newRow = tableElement.insertRow(tableElement.rows.length);
+                var newCell;
+                for (var i = 0; i < cells.length; i++) {
+                    newCell = newRow.insertCell(newRow.cells.length);
+                    newCell.innerHTML = cells[i];
+                }
+                return newRow;
+            }
+            function deleteRow(tableID, rowNumber) {
+                var tableElement = document.getElementById(tableID);
+                if (rowNumber > 0 && rowNumber < tableElement.rows.length) {
+                    tableElement.deleteRow(rowNumber);
+                } else {
+                    alert('Failed!');
+                }
+            }
+            function GetXMLHttpObject() {
+                var xmlHttp = null;
+                try {
+                    // Firefox, Opera, Safari
+                    xmlHttp = new XMLHttpRequest();
+                } catch (e) {
+                    // IE
+                    try {
+                        xmlHttp = new ActiveXObject('Msxml12.XMLHTTP');
+                    } catch (e) {
+                        xmlHttp = new ActiveXObject('Microsoft.XMLHTTP');
+                    }
+                }
+                return xmlHttp;
+            }
+            function searchNode(node, strSearch, tableID) {
+                if (!node) {
+                    return;
+                }
+                if (node.tagName === 'booktitle') {
+                    var tmp = node.firstChild.nodeValue;
+                    if (tmp.indexOf(strSearch, 0) > -1) {
+                        var parent = node.parentNode;
+                        var attrID = parent.getAttribute('id');
+                        new_XMLDOM += '<book id="' + attrID + '">';
+                        count++;
+                        cells[0] = count;
+                        cells[1] = parent.getAttribute('id');
+                        cells[2] = node.firstChild.nodeValue;
+                        new_XMLDOM += '<booktitle>' + node.firstChild + '</booktitle>';
+                        var sibling = node.nextElementSibling;
+                        cells[3] = sibling.firstChild.textContent;
+                        new_XMLDOM += '<author>' + sibling.firstChild.textContent + '</author>';
+                        sibling = sibling.nextElementSibling;
+                        cells[4] = sibling.firstChild.textContent;
+                        new_XMLDOM += '<price>' + sibling.firstChild.textContent + '</price>';
+                        addRow(tableID, cells);
+                        new_XMLDOM += '</book>';
+                    }
+                }
+                var childs = node.childNodes;
+                for (var i = 0; i < childs.length; i++) {
+                    searchNode(childs[i], strSearch, tableID);
+                }
+            }
+            function traversalDOMTree(fileName, tableID) {
+                var tableElement = document.getElementById(tableID);
+                var i = 1;
+                while (i < tableElement.rows.length) {
+                    deleteRow(tableID, i);
+                }
+                count = 0;
+                new_XMLDOM = '<library>';
+//                var xmlDOM = new ActiveXObject('Microsoft.XMLDOM');
+//                new_XMLDOM = '<library xmlns="http://xml.netbeans.org.schema.library">';
+//                xmlDOM.async = false;
+//                xmlDOM.load(fileName);
+                var xhr = GetXMLHttpObject();
+                xhr.open('GET', fileName);
+                xhr.onreadystatechange = function (e) {
+                    if (this.readyState === 4 && this.status === 200) {
+                        window.xhr = xhr;
+                        searchNode(xhr.responseXML.children[0], myForm.txtSearch.value, tableID);
+                        new_XMLDOM += '</library>';
+                    }
+                }
+                xhr.send();
+            }
+        </script>
+    </head>
+    <body>
+        <h1>JavaScript with DOM Demo</h1>
+        <form name="myForm">
+            Name: <input type="text" name="txtSearch"/><br/>
+            <input type="button" value="search" onclick="traversalDOMTree('./library.xml', 'datatable')"/>
+        </form>
+        
+        <table border="1" id="datatable">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Code</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>
