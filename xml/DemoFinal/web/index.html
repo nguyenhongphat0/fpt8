@@ -61,7 +61,7 @@ and open the template in the editor.
                         cells[0] = count;
                         cells[1] = parent.getAttribute('id');
                         cells[2] = node.firstChild.nodeValue;
-                        new_XMLDOM += '<booktitle>' + node.firstChild + '</booktitle>';
+                        new_XMLDOM += '<booktitle>' + node.firstChild.textContent + '</booktitle>';
                         var sibling = node.nextElementSibling;
                         cells[3] = sibling.firstChild.textContent;
                         new_XMLDOM += '<author>' + sibling.firstChild.textContent + '</author>';
@@ -84,7 +84,7 @@ and open the template in the editor.
                     deleteRow(tableID, i);
                 }
                 count = 0;
-                new_XMLDOM = '<library>';
+                new_XMLDOM = '<library xmlns="http://xml.netbeans.org.schema/library">';
 //                var xmlDOM = new ActiveXObject('Microsoft.XMLDOM');
 //                new_XMLDOM = '<library xmlns="http://xml.netbeans.org.schema.library">';
 //                xmlDOM.async = false;
@@ -99,6 +99,19 @@ and open the template in the editor.
                     }
                 }
                 xhr.send();
+            }
+            function update() {
+                xmlHttp = GetXMLHttpObject();
+                if (xmlHttp === null) {
+                    alert('Your browser does not support AJAX!');
+                    return;
+                }
+                xmlHttp.open("POST", "UpdateController", true);
+                xmlHttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                var url = 'xmlContent=';
+                url += new_XMLDOM;
+                console.log(url);
+                xmlHttp.send(url)
             }
         </script>
     </head>
@@ -130,5 +143,15 @@ and open the template in the editor.
             </tbody>
         </table>
 
+        <form action="XsdToObjectController" method="POST">
+            <input type="submit" value="Create"/>
+        </form>
+        <form name="updateForm">
+            <input type="button" value="Synchronize" onclick="update();"/>
+        </form>
+        <form action="ConvertToPDFController" method="POST">
+            Fullname: <input type="text" name="txtSearch"/> <br/>
+            <input type="submit" value="Search"/>
+        </form>
     </body>
 </html>
